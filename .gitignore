@@ -1,0 +1,14 @@
+env
+venv
+temp
+tmp
+.vscode
+__pycache__
+
+*.pyc
+*.sqlite
+*.coverage
+.DS_Store
+env.sh
+*.idea
+migrations
