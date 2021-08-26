@@ -11,7 +11,6 @@ import json
 import haversine as hs
 import pandas as pd
 from dotenv import dotenv_values
-from tabulate import tabulate
 
 config = dotenv_values(".env")
 

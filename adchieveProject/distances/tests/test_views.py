@@ -1,6 +1,5 @@
 import json
-
-from adchieveProject.distances.api.views import Distance
+from ..api.views import Distance
 from rest_framework.test import APITestCase, APIRequestFactory
 from rest_framework import status
 
@@ -55,16 +54,16 @@ class DistanceTestCase(APITestCase):
             data=json.dumps(self.valid_payload, default=str),
             content_type='application/json'
         )
-        detail_view = Distance.as_view(actions={'post': 'create'})
+        detail_view = Distance.as_view()
         response = detail_view(api_request)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_create_invalid_csv(self):
         api_request = factory.post(
             '',
-            data=json.dumps(self.valid_payload, default=str),
+            data=json.dumps(self.invalid_payload, default=str),
             content_type='application/json'
         )
-        detail_view = Distance.as_view(actions={'post': 'create'})
+        detail_view = Distance.as_view()
         response = detail_view(api_request)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)

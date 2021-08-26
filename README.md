@@ -68,9 +68,9 @@
 
 # Usage
 
-* API for calculating distance is:
-`localhost/api/v1/distance/`
+* API for calculating distance is: `localhost/api/v1/distance/`
 
 * POST the input json of addresses in the above format. 
 
 * Output will be stored in the Project directory as 'distance.csv' as well shown on console and in API response
+* Run tests by: `python manage.py test distances.tests.test_views`
