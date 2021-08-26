@@ -76,21 +76,6 @@ WSGI_APPLICATION = 'adchieveProject.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'DistanceDB',
-        'USER': 'jaiti',
-        'PASSWORD': 'jaiti123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-
-}
-
-# DB settings for the testing database
-if 'test' in sys.argv or 'test_coverage' in sys.argv:
-    DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': 'sqlite3.db',
