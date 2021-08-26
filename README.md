@@ -38,6 +38,30 @@
         {
             "name": "Eastern Enterprise",
             "address": "46/1 Office no 1 Ground Floor , Dada House , Inside dada silk mills compound, Udhana Main Rd, near Chhaydo Hospital, Surat, 394210, India"
+        },
+        {
+            "name": "Adchieve Rotterdam",
+            "address": "Weena 505, 3013 AL Rotterdam, The Netherlands"
+        },
+        {
+            "name": "Sherlock Holmes",
+            "address": "221B Baker St., London, United Kingdom"
+        },
+        {
+            "name": "The White House",
+            "address": "1600 Pennsylvania Avenue, Washington, D.C., USA"
+        },
+        {
+            "name": "The Empire State Building",
+            "address": "350 Fifth Avenue, New York City, NY 10118"
+        },
+        {
+            "name": "The Pope",
+            "address": "Saint Martha House, 00120 Citta del Vaticano, Vatican City"
+        },
+        {
+            "name": "Neverland",
+            "address": "5225 Figueroa Mountain Road, Los Olivos, Calif. 93441, USA"
         }
     ]
 `
@@ -47,6 +71,6 @@
 * API for calculating distance is:
 `localhost/api/v1/distance/`
 
-* Post the input json of addresses. 
+* POST the input json of addresses in the above format. 
 
-* Output will be stored in the Project directory as 'distance.csv'.
+* Output will be stored in the Project directory as 'distance.csv' as well shown on console and in API response
