@@ -1,15 +1,36 @@
-# Distance Project
+# Project Description
 
-This project calculates the distance from given list of addresses to Adchieve HQ, sorts them and stores in a CSV
+* REST API to calculate the distance from given list of addresses to Adchieve HQ, sorts them and stores in a CSV which can be applied through localhost/api/v1/distances
 
-## Installation
+    ### Unit Testing Framework
+    * This project was developed in an iterative development cycle that emphasizes writing automated tests before writing the actual code, also known as Test Driven Development(TDD) approach.
+      
+    * To test APIs, we use the same existing Django test framework, but with added support of DRF's helper classes. These classes extend Django's existing classes.
 
-pip install -r requirements.txt
+## Prerequisites
 
-## Input
+* Git
+* Python3
+* Virtualenv
 
-Input is a list of name and address of the location.
-[
+## Setup
+
+* Create a virtualenv using python3 `python3 -m venv env-name`
+
+* Activate the virtualenv  `source env-name/bin/activate`
+
+* Clone the repository `git clone git@git.easternenterprise.com:jaitimalhotra/adchieveassignment.git`  
+
+* Install all the dependencies inside your virtualenv `pip3 install -r requirements.txt` 
+
+## Running Django Server
+* Start local server- `python manage.py runserver`
+
+# Input
+
+* Input is a list of name and address of the location in this format.
+
+`[
         {
             "name": "Eastern Enterprise B.V.",
             "address": "Deldenerstraat 70, 7551AH Hengelo, The Netherlands"
@@ -43,14 +64,13 @@ Input is a list of name and address of the location.
             "address": "5225 Figueroa Mountain Road, Los Olivos, Calif. 93441, USA"
         }
     ]
+`
 
+# Usage
 
-## Usage
+* API for calculating distance is:
+`localhost/api/v1/distance/`
 
-API for calculating distance is:
+* POST the input json of addresses in the above format. 
 
-/api/v1/distance/
-
-Post the input json of addresses. 
-
-Output will be stored in the Project directory as 'distance.csv'.
+* Output will be stored in the Project directory as 'distance.csv' as well shown on console and in API response

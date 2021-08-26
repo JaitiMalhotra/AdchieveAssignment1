@@ -8,7 +8,8 @@ class Distance(APIView):
         address_details = request.data
         if request.data:
             response = get_distances(address_details)
+            return Response(response, status=201)
+
         else:
             response = {'message': 'Invalid input'}
             return Response(response, status=400)
-        return Response(response, status=201)
