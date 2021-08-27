@@ -17,7 +17,9 @@ config = dotenv_values(".env")
 
 def get_all_geolocations(addresses):
     """
-    This function will generate list of all geolocations- latitude and longitude.
+    This function will generate list of all
+    geolocations- latitude and longitude. It
+    will try to fetch again if there is any internal error.
 
     param json addresses: Addresses whose geolocations needs to be generated
     return: List of Geolocation details with latitude, longitude and status
@@ -28,16 +30,25 @@ def get_all_geolocations(addresses):
         geolocation = get_geolocation(address)
         if geolocation['status']:
             geolocations.append(geolocation)
+        else:
+            internal_error = geolocation.get('error_data', None)
+            if internal_error:
+                geolocation = get_geolocation(address)
+                if geolocation['status']:
+                    geolocations.append(geolocation)
 
     return geolocations
 
 
 def get_geolocation(address):
     """
-    This function will generate geolocation (latitude & longitude) of single address
+    This function will generate geolocation (latitude & longitude)
+    of single address
 
-    param dict address: Single Address whose geolocations needs to be generated
-    return: Geolocation detail of single address with latitude, longitude and status
+    param dict address: Single Address whose geolocations
+                        needs to be generated
+    return: Geolocation detail of single address with
+            latitude, longitude and status
     rtype: dict
     """
     conn = http.client.HTTPConnection('api.positionstack.com')
@@ -67,26 +78,32 @@ def get_geolocation(address):
                     'message': "Address/Name not found"}
     else:
         return {'status': False,
-                'message': "Could not get geolocation"}
+                'message': "Could not get geolocation",
+                'error_data': error}
 
 
 def calculate_distance(geolocations):
     """
-    This function will calculate distance between Adchieve HQ and other address
+    This function will calculate distance between
+    Adchieve HQ and other address
 
-    param json geolocations: Geolocations whose address distance needs to be calculated
+    param json geolocations: Geolocations whose address
+                            distance needs to be calculated
     return: Distance detail of all addresses
     rtype: dict
     """
     for geolocation in geolocations:
         if geolocation.get('status'):
             adchieve_address = get_headquarter_address()
-            adchieve_location = (adchieve_address.get('latitude'), adchieve_address.get('longitude'))
-            user_location = (geolocation.get('latitude'), geolocation.get('longitude'))
+            adchieve_location = (adchieve_address.get('latitude'),
+                                 adchieve_address.get('longitude'))
+            user_location = (geolocation.get('latitude'),
+                             geolocation.get('longitude'))
             distance = hs.haversine(adchieve_location, user_location)
             distance = round(distance, 2)
             geolocation['Distance'] = distance
-            del geolocation['latitude'], geolocation['longitude'], geolocation['status']
+            del geolocation['latitude'], geolocation['longitude'], \
+                geolocation['status']
 
     return geolocations
 
@@ -95,15 +112,18 @@ def create_csv(geo_data):
     """
     This function will create and store data in CSV file & sort them
 
-    param json geolocations: Geolocations whose address distance needs to be calculated
+    param json geolocations: Geolocations whose address
+                            distance needs to be calculated
     """
-    distance_df = pd.DataFrame(geo_data, columns=['Distance', 'Name', 'Address'])
-    sorted_distance_df = distance_df.sort_values(by=["Distance"], ascending=True)
-    sorted_distance_df['Distance'] = sorted_distance_df['Distance'].astype(str) + ' km'
-    sorted_distance_df.reset_index(drop=True, inplace=True)
-    sorted_distance_df.index.names = ['Sortnumber']
-    sorted_distance_df.to_csv('distances.csv')
-    return sorted_distance_df
+    distance_df = pd.DataFrame(geo_data,
+                               columns=['Distance', 'Name', 'Address'])
+    sorted_df = distance_df.sort_values(by=["Distance"],
+                                        ascending=True)
+    sorted_df['Distance'] = sorted_df['Distance'].astype(str) + ' km'
+    sorted_df.reset_index(drop=True, inplace=True)
+    sorted_df.index.names = ['Sortnumber']
+    sorted_df.to_csv('distances.csv')
+    return sorted_df
 
 
 def get_headquarter_address():
@@ -115,13 +135,15 @@ def get_headquarter_address():
     """
     return get_geolocation({
         "name": "Adchieve HQ",
-        "address": "Sint Janssingel 92, 5211 DA 's-Hertogenbosch, The Netherlands"
+        "address":
+            "Sint Janssingel 92, 5211 DA 's-Hertogenbosch, The Netherlands"
     })
 
 
 def get_distances(addresses):
     """
-    This function will call all functions- get all geolocation, calculate distance and create CSV.
+    This function will call all functions- get all
+    geolocation, calculate distance and create CSV.
 
     param json addressed: Addresses received in POST method
     """

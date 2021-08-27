@@ -14,21 +14,31 @@
 * Virtualenv
 
 ## Setup
+* Firstly create a virtual environment to install dependencies in and activate it.
 
-* Create a virtualenv using python3 `python3 -m venv env-name`
+* Create a virtualenv using python3 `python3 -m venv env`
 
-* Activate the virtualenv  `source env-name/bin/activate`
+* Activate the virtualenv  `source env/bin/activate`
 
-* Clone the repository `git clone git@git.easternenterprise.com:jaitimalhotra/adchieveassignment.git`  
+* Clone the repository `git clone git@git.easternenterprise.com:jaitimalhotra/adchieveassignment.git`
+
+* cd adchieveassignment/
 
 * Install all the dependencies inside your virtualenv `pip3 install -r requirements.txt` 
 
 ## Running Django Server
+* Once all dependencies are installed start Django server by
+
+* cd adchieveProject/
+
 * Start local server- `python manage.py runserver`
+
+* And navigate to use the API `http://127.0.0.1:8000/api/v1/distance/`
+
 
 # Input
 
-* Input is a list of name and address of the location in this format.
+* Input is a list of name and address of the location in this format. POST this input on the API to get output. 
 
 `[
         {
@@ -68,9 +78,10 @@
 
 # Usage
 
-* API for calculating distance is: `localhost/api/v1/distance/`
+* API for calculating distance is: `http://127.0.0.1:8000/api/v1/distance/`
 
 * POST the input json of addresses in the above format. 
 
 * Output will be stored in the Project directory as 'distance.csv' as well shown on console and in API response
+
 * Run tests by: `python manage.py test distances.tests.test_views`

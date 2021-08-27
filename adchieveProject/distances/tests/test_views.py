@@ -18,7 +18,9 @@ class DistanceTestCase(APITestCase):
             },
             {
                 "name": "Eastern Enterprise",
-                "address": "46/1 Office no 1 Ground Floor , Dada House , Inside dada silk mills compound, Udhana Main Rd, near Chhaydo Hospital, Surat, 394210, India"
+                "address": "46/1 Office no 1 Ground Floor , Dada House , " +
+                        "Inside dada silk mills compound, Udhana Main Rd, " +
+                        "near Chhaydo Hospital, Surat, 394210, India"
             },
             {
                 "name": "Adchieve Rotterdam",
@@ -38,11 +40,13 @@ class DistanceTestCase(APITestCase):
             },
             {
                 "name": "The Pope",
-                "address": "Saint Martha House, 00120 Citta del Vaticano, Vatican City"
+                "address":
+                "Saint Martha House, 00120 Citta del Vaticano, Vatican City"
             },
             {
                 "name": "Neverland",
-                "address": "5225 Figueroa Mountain Road, Los Olivos, Calif. 93441, USA"
+                "address":
+                "5225 Figueroa Mountain Road, Los Olivos, Calif. 93441, USA"
             }
         ]
         self.invalid_payload = []
