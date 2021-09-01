@@ -20,7 +20,7 @@
 
 * Activate the virtualenv  `source env/bin/activate`
 
-* Clone the repository `git clone git@git.easternenterprise.com:jaitimalhotra/adchieveassignment.git`
+* Clone the repository `git clone git@git.easternenterprise.com:jaitimalhotra/adchieveassignment2.git`
 
 * cd adchieveassignment/
 
