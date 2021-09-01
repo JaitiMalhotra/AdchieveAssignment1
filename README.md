@@ -21,7 +21,7 @@
 
 * Activate the virtualenv  `source env/bin/activate`
 
-* Clone the repository `git clone git@gitlab.com:easternenterprise/adchieve-assignment-django.git`
+* Clone the repository `git clone https://github.com/JaitiMalhotra/AdchieveAssignmentDjango.git`
 
 * cd adchieve-assignment-django/
 
