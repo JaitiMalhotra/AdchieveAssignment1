@@ -30,7 +30,7 @@
 ## Running Django Server
 * Once all dependencies are installed start Django server by
 
-* cd adchieveProject/
+* cd AdchieveAssignmentDjango/
 
 * Start local server- `python manage.py runserver`
 
