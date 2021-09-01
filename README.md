@@ -23,7 +23,7 @@
 
 * Clone the repository `git clone git@gitlab.com:easternenterprise/adchieve-assignment-django.git`
 
-* cd adchieveassignment/
+* cd adchieve-assignment-django/
 
 * Install all the dependencies inside your virtualenv `pip3 install -r requirements.txt` 
 
