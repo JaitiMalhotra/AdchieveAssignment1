@@ -23,14 +23,14 @@
 
 * Clone the repository `git clone https://github.com/JaitiMalhotra/AdchieveAssignmentDjango.git`
 
-* cd adchieve-assignment-django/
+* cd AdchieveAssignmentDjango/
 
 * Install all the dependencies inside your virtualenv `pip3 install -r requirements.txt` 
 
 ## Running Django Server
 * Once all dependencies are installed start Django server by
 
-* cd AdchieveAssignmentDjango/
+*  cd adchieveProject/
 
 * Start local server- `python manage.py runserver`
 
