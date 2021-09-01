@@ -1,6 +1,6 @@
 # Project Description
 
-* REST API to calculate the distance from given list of addresses to Adchieve HQ, sorts them and stores in a CSV which can be applied through localhost/api/v1/distances
+* Django REST API to calculate the distance from given list of addresses to Adchieve HQ, sorts them and stores in a CSV which can be applied through localhost/api/v1/distances
 
     ### Unit Testing Framework
     * This project was developed in an iterative development cycle that emphasizes writing automated tests before writing the actual code, also known as Test Driven Development(TDD) approach.
@@ -10,6 +10,7 @@
 ## Prerequisites
 
 * Git
+* Django
 * Python3
 * Virtualenv
 
@@ -20,7 +21,7 @@
 
 * Activate the virtualenv  `source env/bin/activate`
 
-* Clone the repository `git clone git@git.easternenterprise.com:jaitimalhotra/adchieveassignment2.git`
+* Clone the repository `git clone git@gitlab.com:easternenterprise/adchieve-assignment-django.git`
 
 * cd adchieveassignment/
 
